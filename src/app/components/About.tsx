@@ -2,19 +2,19 @@
 
 import Image from "next/image";
 import React from "react";
-import bruh from "../images/AboutMe.jpg";
+import Hero from "../../../public/images/AboutMe.jpg";
 import Link from "next/link";
 
 const About: React.FC = () => {
   // Directly reference the file in the public folder
-  const resumePath = "/resume.pdf";
+  const resumePath = "/images/resume.pdf";
 
   return (
     <div id="about" className="flex items-center justify-center py-10 px-5">
       {/* Image Section */}
       <div className="flex-shrink-0 mr-10">
         <Image
-          src={bruh}
+          src={Hero}
           alt="Austin Tran"
           width={300}
           height={300}

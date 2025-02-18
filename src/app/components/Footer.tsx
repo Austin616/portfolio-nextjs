@@ -1,22 +1,23 @@
-"use client"
+"use client";
+import React from "react";
 
-import React from 'react';
-
-const Footer: React.FC = () => {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
+const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-white text-center py-6 mt-10 border-t-2 border-white">
-      <div className="max-w-lg mx-auto">
-        <p className="text-lg mb-4">Austin Tran</p>
-        <button 
-          onClick={scrollToTop} 
-          className="bg-blue-500 text-white py-2 px-6 rounded-lg shadow-md hover:bg-blue-600 transition duration-300 transform hover:scale-105"
+    <footer className="text-white p-6">
+      <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
+        <div className="text-center md:text-left text-gray-400">
+          <p className="text-lg font-semibold">Austin Tran</p>
+          <p className="text-sm cursor-pointer hover:text-white" onClick={() => window.open("mailto:austintran616@gmail.com")}> austintran616@gmail.com</p>
+        </div>
+        <a
+          href="#"
+          className="border-radius-3 border border-white p-2 text-sm hover:bg-white hover:text-black transition-colors"
         >
           Back to Top
-        </button>
+        </a>
+      </div>
+      <div className="w-[90%] border-t border-white mt-4 pt-4 mx-auto text-center text-gray-400 text-sm">
+        © {new Date().getFullYear()} Austin Tran. All rights reserved.
       </div>
     </footer>
   );
