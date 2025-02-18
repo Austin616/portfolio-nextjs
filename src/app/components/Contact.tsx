@@ -22,12 +22,28 @@ const Contact: React.FC = () => {
     });
   };
 
-  // Handle form submission
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Send form data to API or email service
-    console.log("Form Submitted:", formData);
-    // You can add a real submission action here (e.g., email API)
+
+    try {
+      const response = await fetch("http://localhost:5000/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        alert("Message sent successfully!");
+      } else {
+        alert("Failed to send message: " + data.message);
+      }
+    } catch (error) {
+      console.error("Error sending message:", error);
+      alert("Something went wrong!");
+    }
   };
 
   return (
@@ -39,9 +55,18 @@ const Contact: React.FC = () => {
         <h2 className="text-3xl font-semibold text-center text-white mb-6">
           contact me
         </h2>
-            <p className="text-gray-400 text-center mb-6">
-            If you have any questions or just want to say hi, feel free to drop me a message using the form below, or email me at <span className="text-blue-400 cursor-pointer" onClick={() => window.open("mailto:austintran616@gmail;com")}> austintran616@gmail.com </span>.
-            </p>
+        <p className="text-gray-400 text-center mb-6">
+          If you have any questions or just want to say hi, feel free to drop me
+          a message using the form below, or email me at{" "}
+          <span
+            className="text-blue-400 cursor-pointer"
+            onClick={() => window.open("mailto:austintran616@gmail;com")}
+          >
+            {" "}
+            austintran616@gmail.com{" "}
+          </span>
+          .
+        </p>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="flex space-x-4">
             <div className="flex flex-col space-y-2 w-1/2">
