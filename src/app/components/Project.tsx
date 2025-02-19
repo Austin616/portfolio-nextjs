@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 
 const projects = [
   {
@@ -45,7 +46,7 @@ const Project: React.FC = () => {
             className="bg-gray-800 p-6 rounded-lg border-2 border-white shadow-lg hover:scale-105 transition-transform duration-300 hover:border-orange-400 flex flex-col"
           >
             <h3 className="text-2xl font-semibold mb-4">{project.title}</h3>
-            <img
+            <Image
               src={project.imgSrc}
               alt={project.title}
               className="w-full object-cover mb-4 rounded"

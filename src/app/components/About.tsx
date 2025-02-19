@@ -26,7 +26,7 @@ const About: React.FC = () => {
       <div className="max-w-xl">
         <h2 className="text-3xl font-semibold text-white mb-6">about me</h2>
         <p className="text-lg text-gray-300 mb-4 leading-relaxed">
-          Hi there! I'm{" "}
+          Hi there! I&#39;m{" "}
           <span className="font-bold text-orange-400">Austin Tran</span>, an
           aspiring software engineer currently studying{" "}
           <span className="font-bold text-orange-400">Computer Science</span> at{" "}
@@ -36,7 +36,7 @@ const About: React.FC = () => {
           .
         </p>
         <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-          I’m passionate about building innovative software solutions that solve
+          I&#39;m passionate about building innovative software solutions that solve
           real-world problems. My journey in coding has been fueled by a love
           for tackling challenges and continuously learning new technologies. I
           specialize in web development, focusing on creating{" "}
@@ -48,9 +48,9 @@ const About: React.FC = () => {
           .
         </p>
         <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-          When I'm not coding, I enjoy lifting weights, exploring the latest in
+          When I&#39;m not coding, I enjoy lifting weights, exploring the latest in
           gaming, and spending quality time with my friends. I believe in the
-          power of collaboration and creativity, and I’m always excited to
+          power of collaboration and creativity, and I&#39;m always excited to
           connect with others who share a passion for technology.
         </p>
         <button className="bg-orange-400 text-white px-6 py-2 rounded hover:bg-orange-500 transition duration-300">
