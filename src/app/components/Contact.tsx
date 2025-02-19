@@ -11,6 +11,8 @@ const Contact: React.FC = () => {
     message: "",
   });
 
+  const [isSubmitted, setIsSubmitted] = useState(false);  // New state to track form submission
+
   // Handle form data changes
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -24,28 +26,36 @@ const Contact: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
+  
     try {
-      const response = await fetch("http://localhost:5000/send-email", {
-        method: "POST",
+      const response = await fetch('/api/email', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
       });
-
+  
       const data = await response.json();
       if (response.ok) {
-        alert("Message sent successfully!");
+        alert('Message sent successfully!');
+        setIsSubmitted(true);  // Update submission state on success
+        setFormData({          // Optionally clear form data after submission
+          firstName: "",
+          lastName: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
       } else {
-        alert("Failed to send message: " + data.message);
+        alert('Failed to send message: ' + data.message);
       }
     } catch (error) {
-      console.error("Error sending message:", error);
-      alert("Something went wrong!");
+      console.error('Error sending message:', error);
+      alert('Something went wrong!');
     }
   };
-
+  
   return (
     <div
       id="contact"
@@ -156,6 +166,12 @@ const Contact: React.FC = () => {
             Submit
           </button>
         </form>
+
+        {isSubmitted && (
+          <div className="text-green-500 mt-4 text-center">
+            Thank you for your message! I will get back to you soon.
+          </div>
+        )}
       </div>
     </div>
   );
